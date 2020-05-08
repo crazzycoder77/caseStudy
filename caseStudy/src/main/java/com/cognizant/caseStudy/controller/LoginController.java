@@ -14,12 +14,12 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService loginService;
-	@GetMapping("/")
+	@GetMapping("login")
 	public String renderLoginPage(ModelMap model) {
 		return "login";
 	}
 	
-	@PostMapping("/")
+	@PostMapping("login")
 	public String renderWelcome(@RequestParam String name, @RequestParam String password,
 			ModelMap model) {
 	if(!loginService.auth(name, password)) {
