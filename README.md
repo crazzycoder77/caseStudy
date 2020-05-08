@@ -1,7 +1,10 @@
 # caseStudy
 
-### SQL schema in 
-  users.sql
+### login page
+  http://localhost:8080/login
+  
+### Registration page
+  http://localhost:8080/registrationPageTable
   
 ### valid user credential
   username=admin

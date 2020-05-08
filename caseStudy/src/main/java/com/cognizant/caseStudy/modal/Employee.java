@@ -1,10 +1,16 @@
 package com.cognizant.caseStudy.modal;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "employee")
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +24,15 @@ public class Employee {
 	private String contactNumber;
 	@Column(name = "emp_gender")
 	private String gender;
-	@Column(name = "emp_country")
-	private String country;
-	@Column(name = "emp_state")
-	private String state;
-	@Column(name = "emp_city")
-	private String city;
+	@ManyToOne
+	@JoinColumn(name = "emp_country_id")
+	private Country country;
+	@ManyToOne
+	@JoinColumn(name = "emp_state_id")
+	private State state;
+	@ManyToOne
+	@JoinColumn(name = "emp_city_id")
+	private City city;
 
 	public long getId() {
 		return id;
@@ -65,27 +74,28 @@ public class Employee {
 		this.gender = gender;
 	}
 
-	public String getCountry() {
+	public Country getCountry() {
 		return country;
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
 
-	public String getState() {
+	public State getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(State state) {
 		this.state = state;
 	}
 
-	public String getCity() {
+	public City getCity() {
 		return city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(City city) {
 		this.city = city;
 	}
+
 }
